@@ -1,0 +1,23 @@
+<persistence xmlns="http://java.sun.com/xml/ns/persistence" version="2.0">
+
+    <persistence-unit name="company" >
+
+        <class> company.oneToOne.domain.Employee</class>
+        <class> company.oneToOne.domain.ParkingSpace</class>
+
+		<properties>
+            <property name="javax.persistence.jdbc.driver"
+                      value="org.postgresql.Driver"/>
+
+            <property name="javax.persistence.jdbc.url"
+                      value="jdbc:postgresql://10.0.0.16:5432/company"/>
+
+            <property name="javax.persistence.jdbc.user" value="postgres"/>
+            <property name="javax.persistence.jdbc.password" value="foobar"/>
+
+            <!-- log at warn level (default : ERROR) -->
+            <property name="javax.persistence.logging.level" value="WARNING"/>
+
+        </properties>
+    </persistence-unit>
+</persistence>

@@ -1,0 +1,9 @@
+-- company\sql\queries
+
+CREATE SEQUENCE Employee_Sequence       START WITH 1001 INCREMENT BY 1;
+
+CREATE SEQUENCE Department_Sequence     START WITH 2001 INCREMENT BY 1;
+
+CREATE SEQUENCE Project_Sequence        START WITH 3001 INCREMENT BY 1;
+
+CREATE SEQUENCE ParkingSpace_Sequence   START WITH 9001 INCREMENT BY 1;

@@ -1,0 +1,89 @@
+
+Changes to [JPA2] examples
+
+    persistence.xml
+
+        adapted from eclipselink to hibernate
+
+    package name changes
+        "examples" -> "company"
+        "examples.stateless" -> "company.<subproject>.domain"
+
+    Service Class
+        old : examples.stateless.SearchService.java
+        new : company.<subproject>.domain.EmployeeRepository.java
+
+        old : import javax.ejb.Stateless;            NOT part of Hibernate !!
+              @Stateless public class SearchService
+        new : entityManager =  Persistence.connect ();
+              (class company.persistence.Persistence is new)
+
+        let findAll() return a List instead of a Collection.
+            reason : Lists can be indexed, Collections not.
+            accessing individual list items is good for testing
+
+    Obtaining an Entity Manager
+        new : using class spize.persistence.Persistence
+
+    Tests
+        old : no asserts  -> can't say these are tests
+        new : added many asserts (still more to add)
+
+
+
+    SQL
+        old : db.sql
+        new : sequences.sql, tables.sql, ...
+
+        PK's : define via ALTER TABLE, not 'inlined' in CREATE TABLE
+
+           junction table PROJECT_EMPLOYEE : define PK
+
+
+        Dates
+            old : {d '2001-01-01'}  etc.    nB : which standard is this ???
+            new :    '2001-01-01'
+
+    changes due to provider mal-function
+
+      hibernate
+        1 : M and M : N
+            a collection is used - fine.
+            old : the collection is instantiated in the constructor - problem :
+                  right after instantiation the collection is magically set
+                  to <null>
+            new : the collection is instantiated at declaration
+                  - this magically fixes the problem :-)
+
+      eclipseLink
+
+      * the [JPA2] examples use the sequence
+                MINVALUE 1 START WITH 100 INCREMENT BY 50
+
+        since we don't want INCREMENTs BY 50,
+
+        but rather
+                START WITH 1001 INCREMENT BY 1,
+
+        we added parameter
+            allocationSize = 1
+        to @SequenceGenerator.
+
+        reason : the default in eclipselink is 50 (!), which will result
+            in unexpected primary keys ....
+
+      * [JPA2] example  Chapter4\21-manyToManyBidirectional
+
+            uses @Id @GeneratedValue(strategy=GenerationType.IDENTITY)
+
+            running our ...\test\company\manyToMany\EmployeeProjectTest
+            results in a RTE at first COMMIT :
+
+                ERROR: null value in column "id" violates not-null constraint
+                Detail: Failing row contains (null, Foo, Bar).
+
+            analysis : with IDENTITY strategy, keys are not yet known
+                at COMMIT time for tables participating in a M:N
+                relationship
+
+            solution : use SEQUENCE strategy (!)
