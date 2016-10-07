@@ -4,11 +4,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>gd.wa</groupId>
-    <artifactId>minimal-pom</artifactId>
+    <artifactId>ticketsalesystem</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>minimal-pom</name>
+    <name>ticketsalesystem</name>
     <url>http://maven.apache.org</url>
 
     <properties>
