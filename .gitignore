@@ -3,4 +3,6 @@
 *.iml
 *.classpath
 *.project
+ticketsalesystem/target/
+
 
