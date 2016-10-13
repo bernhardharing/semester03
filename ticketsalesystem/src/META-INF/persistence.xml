@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <persistence xmlns="http://java.sun.com/xml/ns/persistence" version="2.0">
 
-    <persistence-unit name="persistenceUnit">
+    <persistence-unit name="persistence">
         <mapping-file>META-INF/mapping.xml</mapping-file>
         <class>at.fhj.swd.CategoryEntity</class>
         <class>at.fhj.swd.ContingentEntity</class>
@@ -15,22 +15,14 @@
         <class>at.fhj.swd.WithTrackEntity</class>
         <class>at.fhj.swd.WithoutTrackEntity</class>
         <properties>
-            <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://10.65.1.37:5434/haring"/>
-            <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
+            <property name="javax.persistence.jdbc.driver"
+                      value="org.postgresql.Driver"/>
+            <property name="javax.persistence.jdbc.url"
+                      value="jdbc:postgresql://10.65.1.37:5434/company"/>
             <property name="javax.persistence.jdbc.user" value="haring"/>
             <property name="javax.persistence.jdbc.password" value="haring4fh"/>
-            <!--<property name="hibernate.connection.url" value="jdbc:postgresql://10.65.1.37:5434/haring"/>-->
-            <!--<property name="hibernate.connection.driver_class" value="org.postgresql.Driver"/>-->
-            <!--<property name="hibernate.connection.username"/>-->
-            <!--<property name="hibernate.connection.password"/>-->
-            <!--<property name="openjpa.ConnectionURL" value="jdbc:postgresql://10.65.1.37:5434/haring"/>-->
-            <!--<property name="openjpa.ConnectionDriverName" value="org.postgresql.Driver"/>-->
-            <!--<property name="openjpa.ConnectionUserName"/>-->
-            <!--<property name="openjpa.ConnectionPassword"/>-->
-            <!--<property name="toplink.jdbc.url" value="jdbc:postgresql://10.65.1.37:5434/haring"/>-->
-            <!--<property name="toplink.jdbc.driver" value="org.postgresql.Driver"/>-->
-            <!--<property name="toplink.jdbc.user"/>-->
-            <!--<property name="toplink.jdbc.password"/>-->
+            <!-- log at warn level (default : ERROR) -->
+            <property name="javax.persistence.logging.level" value="WARNING"/>
         </properties>
     </persistence-unit>
 </persistence>
