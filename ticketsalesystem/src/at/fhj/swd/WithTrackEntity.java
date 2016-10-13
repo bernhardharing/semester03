@@ -9,13 +9,13 @@ import javax.persistence.Table;
  * Created by NUC on 13.10.2016.
  */
 @Entity
-@Table(name = "with_track", schema = "public", catalog = "haring")
-public class WithTrackEntity {
+//@Table(name = "with_track", schema = "public", catalog = "haring")
+public class WithTrackEntity extends StadiumEntity{
     private Integer fkStadiumId;
     private Integer numberTracks;
 
     @Basic
-    @Column(name = "fk_stadium_id")
+//    @Column(name = "fk_stadium_id")
     public Integer getFkStadiumId() {
         return fkStadiumId;
     }
@@ -25,7 +25,7 @@ public class WithTrackEntity {
     }
 
     @Basic
-    @Column(name = "number_tracks")
+//    @Column(name = "number_tracks")
     public Integer getNumberTracks() {
         return numberTracks;
     }
