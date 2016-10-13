@@ -1,0 +1,36 @@
+<!--<?xml version="1.0" encoding="UTF-8"?>-->
+<!--<persistence xmlns="http://java.sun.com/xml/ns/persistence" version="2.0">-->
+
+    <!--<persistence-unit name="persistenceUnit">-->
+        <!--<mapping-file>../../mapping.xml</mapping-file>-->
+        <!--<class>at.fhj.swd.CategoryEntity</class>-->
+        <!--<class>at.fhj.swd.ContingentEntity</class>-->
+        <!--<class>at.fhj.swd.CustomerEntity</class>-->
+        <!--<class>at.fhj.swd.MatchEntity</class>-->
+        <!--<class>at.fhj.swd.PlaceEntity</class>-->
+        <!--<class>at.fhj.swd.StadiumEntity</class>-->
+        <!--<class>at.fhj.swd.TeamEntity</class>-->
+        <!--<class>at.fhj.swd.TeamMatchEntity</class>-->
+        <!--<class>at.fhj.swd.TicketEntity</class>-->
+        <!--<class>at.fhj.swd.WithTrackEntity</class>-->
+        <!--<class>at.fhj.swd.WithoutTrackEntity</class>-->
+        <!--<properties>-->
+            <!--<property name="eclipselink.jdbc.url" value="jdbc:postgresql://10.65.1.37:5434/haring"/>-->
+            <!--<property name="eclipselink.jdbc.driver" value="org.postgresql.Driver"/>-->
+            <!--<property name="eclipselink.jdbc.user"/>-->
+            <!--<property name="eclipselink.jdbc.password"/>-->
+            <!--<property name="hibernate.connection.url" value="jdbc:postgresql://10.65.1.37:5434/haring"/>-->
+            <!--<property name="hibernate.connection.driver_class" value="org.postgresql.Driver"/>-->
+            <!--<property name="hibernate.connection.username"/>-->
+            <!--<property name="hibernate.connection.password"/>-->
+            <!--<property name="openjpa.ConnectionURL" value="jdbc:postgresql://10.65.1.37:5434/haring"/>-->
+            <!--<property name="openjpa.ConnectionDriverName" value="org.postgresql.Driver"/>-->
+            <!--<property name="openjpa.ConnectionUserName"/>-->
+            <!--<property name="openjpa.ConnectionPassword"/>-->
+            <!--<property name="toplink.jdbc.url" value="jdbc:postgresql://10.65.1.37:5434/haring"/>-->
+            <!--<property name="toplink.jdbc.driver" value="org.postgresql.Driver"/>-->
+            <!--<property name="toplink.jdbc.user"/>-->
+            <!--<property name="toplink.jdbc.password"/>-->
+        <!--</properties>-->
+    <!--</persistence-unit>-->
+<!--</persistence>-->
