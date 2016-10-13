@@ -8,9 +8,15 @@ import javax.persistence.*;
 @Entity
 @Table(name = "category", schema = "public", catalog = "haring")
 public class CategoryEntity {
+    @Id
     private String description;
     private Integer price;
 
+
+    public CategoryEntity(){
+        setDescription("hallo");
+        setPrice(2);
+    };
     @Id
     @Column(name = "description")
     public String getDescription() {
