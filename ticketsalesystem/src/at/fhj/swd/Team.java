@@ -1,19 +1,15 @@
 package at.fhj.swd;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 /**
  * Created by NUC on 14.10.2016.
  */
 @Entity
 public class Team {
-    private Integer pkId;
+    @OneToMany private Integer pkId;
     private String name;
 
-    @Id
     @Column(name = "pk_id")
     public Integer getPkId() {
         return pkId;

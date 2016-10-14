@@ -43,26 +43,4 @@ public class Match {
     public void setStadium(String stadium) {
         this.stadium = stadium;
     }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        Match match = (Match) o;
-
-        if (pkDate != null ? !pkDate.equals(match.pkDate) : match.pkDate != null) return false;
-        if (pkTime != null ? !pkTime.equals(match.pkTime) : match.pkTime != null) return false;
-        if (stadium != null ? !stadium.equals(match.stadium) : match.stadium != null) return false;
-
-        return true;
-    }
-
-    @Override
-    public int hashCode() {
-        int result = pkDate != null ? pkDate.hashCode() : 0;
-        result = 31 * result + (pkTime != null ? pkTime.hashCode() : 0);
-        result = 31 * result + (stadium != null ? stadium.hashCode() : 0);
-        return result;
-    }
 }
