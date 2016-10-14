@@ -1,13 +1,15 @@
 package at.fhj.swd;
 
-import javax.persistence.*;
+import javax.persistence.Basic;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
 /**
- * Created by NUC on 13.10.2016.
+ * Created by NUC on 14.10.2016.
  */
 @Entity
-@Table(name = "stadium", schema = "public", catalog = "haring")
-public class StadiumEntity {
+public class Stadium {
     private Integer pkId;
     private String location;
     private String totalCapacity;
@@ -47,11 +49,11 @@ public class StadiumEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        StadiumEntity that = (StadiumEntity) o;
+        Stadium stadium = (Stadium) o;
 
-        if (pkId != null ? !pkId.equals(that.pkId) : that.pkId != null) return false;
-        if (location != null ? !location.equals(that.location) : that.location != null) return false;
-        if (totalCapacity != null ? !totalCapacity.equals(that.totalCapacity) : that.totalCapacity != null)
+        if (pkId != null ? !pkId.equals(stadium.pkId) : stadium.pkId != null) return false;
+        if (location != null ? !location.equals(stadium.location) : stadium.location != null) return false;
+        if (totalCapacity != null ? !totalCapacity.equals(stadium.totalCapacity) : stadium.totalCapacity != null)
             return false;
 
         return true;

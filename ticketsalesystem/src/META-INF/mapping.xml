@@ -2,7 +2,7 @@
 <entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
         version="2.0">
 
-    <entity class="at.fhj.swd.CategoryEntity">
+    <entity class="at.fhj.swd.Category">
         <table name="category" schema="public" catalog="haring"/>
         <attributes>
             <id name="description">
@@ -13,7 +13,7 @@
             </basic>
         </attributes>
     </entity>
-    <entity class="at.fhj.swd.ContingentEntity">
+    <entity class="at.fhj.swd.Contingent">
         <table name="contingent" schema="public" catalog="haring"/>
         <attributes>
             <id name="id">
@@ -22,15 +22,9 @@
             <basic name="quantity">
                 <column name="quantity"/>
             </basic>
-            <basic name="fkMatchDate">
-                <column name="fk_match_date"/>
-            </basic>
-            <basic name="fkMatchTime">
-                <column name="fk_match_time"/>
-            </basic>
         </attributes>
     </entity>
-    <entity class="at.fhj.swd.CustomerEntity">
+    <entity class="at.fhj.swd.Customer">
         <table name="customer" schema="public" catalog="haring"/>
         <attributes>
             <id name="customerNumber">
@@ -44,9 +38,9 @@
             </basic>
         </attributes>
     </entity>
-    <entity class="at.fhj.swd.MatchEntity">
+    <entity class="at.fhj.swd.Match">
         <table name="match" schema="public" catalog="haring"/>
-        <id-class class="at.fhj.swd.MatchEntityPK"/>
+        <id-class class="at.fhj.swd.MatchPK"/>
         <attributes>
             <id name="pkDate">
                 <column name="pk_date"/>
@@ -59,9 +53,9 @@
             </basic>
         </attributes>
     </entity>
-    <entity class="at.fhj.swd.PlaceEntity">
+    <entity class="at.fhj.swd.Place">
         <table name="place" schema="public" catalog="haring"/>
-        <id-class class="at.fhj.swd.PlaceEntityPK"/>
+        <id-class class="at.fhj.swd.PlacePK"/>
         <attributes>
             <id name="placeNumber">
                 <column name="place_number"/>
@@ -72,18 +66,9 @@
             <id name="placeSection">
                 <column name="place_section"/>
             </id>
-            <basic name="fkCategoryDescription">
-                <column name="fk_category_description"/>
-            </basic>
-            <basic name="fkStadionId">
-                <column name="fk_stadion_id"/>
-            </basic>
-            <basic name="fkTicketNumber">
-                <column name="fk_ticket_number"/>
-            </basic>
         </attributes>
     </entity>
-    <entity class="at.fhj.swd.StadiumEntity">
+    <entity class="at.fhj.swd.Stadium">
         <table name="stadium" schema="public" catalog="haring"/>
         <attributes>
             <id name="pkId">
@@ -97,7 +82,7 @@
             </basic>
         </attributes>
     </entity>
-    <entity class="at.fhj.swd.TeamEntity">
+    <entity class="at.fhj.swd.Team">
         <table name="team" schema="public" catalog="haring"/>
         <attributes>
             <id name="pkId">
@@ -108,27 +93,15 @@
             </basic>
         </attributes>
     </entity>
-    <entity class="at.fhj.swd.TeamMatchEntity">
+    <entity class="at.fhj.swd.TeamMatch">
         <table name="team_match" schema="public" catalog="haring"/>
         <attributes>
             <id name="pkId">
                 <column name="pk_id"/>
             </id>
-            <basic name="fkTeamAId">
-                <column name="fk_team_a_id"/>
-            </basic>
-            <basic name="fkTeamBId">
-                <column name="fk_team_b_id"/>
-            </basic>
-            <basic name="fkMatchDate">
-                <column name="fk_match_date"/>
-            </basic>
-            <basic name="fkMatchTime">
-                <column name="fk_match_time"/>
-            </basic>
         </attributes>
     </entity>
-    <entity class="at.fhj.swd.TicketEntity">
+    <entity class="at.fhj.swd.Ticket">
         <table name="ticket" schema="public" catalog="haring"/>
         <attributes>
             <id name="ticketNumber">
@@ -137,26 +110,12 @@
             <basic name="date">
                 <column name="date"/>
             </basic>
-            <basic name="fkCustomerNumber">
-                <column name="fk_customer_number"/>
-            </basic>
-            <basic name="fkContingentId">
-                <column name="fk_contingent_id"/>
-            </basic>
-            <basic name="fkPlaceNumber">
-                <column name="fk_place_number"/>
-            </basic>
-            <basic name="fkPlaceRow">
-                <column name="fk_place_row"/>
-            </basic>
-            <basic name="fkPlaceSection">
-                <column name="fk_place_section"/>
-            </basic>
         </attributes>
     </entity>
-    <entity class="at.fhj.swd.WithTrackEntity">
+    <entity class="at.fhj.swd.WithTrack">
         <table name="with_track" schema="public" catalog="haring"/>
         <attributes>
+            <id name="id"/>
             <basic name="fkStadiumId">
                 <column name="fk_stadium_id"/>
             </basic>
@@ -165,9 +124,10 @@
             </basic>
         </attributes>
     </entity>
-    <entity class="at.fhj.swd.WithoutTrackEntity">
+    <entity class="at.fhj.swd.WithoutTrack">
         <table name="without_track" schema="public" catalog="haring"/>
         <attributes>
+            <id name="id"/>
             <basic name="fkStadiumId">
                 <column name="fk_stadium_id"/>
             </basic>

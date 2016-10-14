@@ -3,17 +3,17 @@
 
     <persistence-unit name="persistence">
         <mapping-file>META-INF/mapping.xml</mapping-file>
-        <class>at.fhj.swd.CategoryEntity</class>
-        <class>at.fhj.swd.ContingentEntity</class>
-        <class>at.fhj.swd.CustomerEntity</class>
-        <class>at.fhj.swd.MatchEntity</class>
-        <class>at.fhj.swd.PlaceEntity</class>
-        <class>at.fhj.swd.StadiumEntity</class>
-        <class>at.fhj.swd.TeamEntity</class>
-        <class>at.fhj.swd.TeamMatchEntity</class>
-        <class>at.fhj.swd.TicketEntity</class>
-        <class>at.fhj.swd.WithTrackEntity</class>
-        <class>at.fhj.swd.WithoutTrackEntity</class>
+        <class>at.fhj.swd.Category</class>
+        <class>at.fhj.swd.Contingent</class>
+        <class>at.fhj.swd.Customer</class>
+        <class>at.fhj.swd.Match</class>
+        <class>at.fhj.swd.Place</class>
+        <class>at.fhj.swd.Stadium</class>
+        <class>at.fhj.swd.Team</class>
+        <class>at.fhj.swd.TeamMatch</class>
+        <class>at.fhj.swd.Ticket</class>
+        <class>at.fhj.swd.WithTrack</class>
+        <class>at.fhj.swd.WithoutTrack</class>
         <properties>
             <property name="javax.persistence.jdbc.driver"
                       value="org.postgresql.Driver"/>
@@ -24,5 +24,6 @@
             <!-- log at warn level (default : ERROR) -->
             <property name="javax.persistence.logging.level" value="WARNING"/>
         </properties>
+
     </persistence-unit>
 </persistence>

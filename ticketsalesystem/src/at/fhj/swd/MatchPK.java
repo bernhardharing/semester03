@@ -7,9 +7,9 @@ import java.sql.Date;
 import java.sql.Time;
 
 /**
- * Created by NUC on 13.10.2016.
+ * Created by NUC on 14.10.2016.
  */
-public class MatchEntityPK implements Serializable {
+public class MatchPK implements Serializable {
     private Date pkDate;
     private Time pkTime;
 
@@ -38,10 +38,10 @@ public class MatchEntityPK implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        MatchEntityPK that = (MatchEntityPK) o;
+        MatchPK matchPK = (MatchPK) o;
 
-        if (pkDate != null ? !pkDate.equals(that.pkDate) : that.pkDate != null) return false;
-        if (pkTime != null ? !pkTime.equals(that.pkTime) : that.pkTime != null) return false;
+        if (pkDate != null ? !pkDate.equals(matchPK.pkDate) : matchPK.pkDate != null) return false;
+        if (pkTime != null ? !pkTime.equals(matchPK.pkTime) : matchPK.pkTime != null) return false;
 
         return true;
     }

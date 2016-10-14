@@ -5,6 +5,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
@@ -17,7 +18,7 @@ import static org.junit.Assert.*;
  */
 public class CategoryEntityTest{
 
-    private static CategoryEntity categoryEntity;
+    private static Category category;
 
     final static String persistenceUnitName = "persistence";
     static EntityManagerFactory factory;
@@ -26,12 +27,13 @@ public class CategoryEntityTest{
 
     @BeforeClass
     public static void prepare(){
-        categoryEntity = new CategoryEntity("test",30);
+        category = new Category("test",30);
         factory = Persistence.createEntityManagerFactory( persistenceUnitName );
         manager = factory.createEntityManager();
         transaction = manager.getTransaction();
 
     }
+
 
     @AfterClass
     public static void teardown() {
@@ -42,8 +44,8 @@ public class CategoryEntityTest{
 
     @Test public void create () {
         transaction.begin ();
-        assertNotNull (categoryEntity);
-        manager.persist (categoryEntity);
+        assertNotNull (category);
+        manager.persist (category);
         transaction.commit();
     }
 }

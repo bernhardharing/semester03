@@ -5,12 +5,11 @@ import java.sql.Date;
 import java.sql.Time;
 
 /**
- * Created by NUC on 13.10.2016.
+ * Created by NUC on 14.10.2016.
  */
 @Entity
-@Table(name = "match", schema = "public", catalog = "haring")
-@IdClass(MatchEntityPK.class)
-public class MatchEntity {
+@IdClass(MatchPK.class)
+public class Match {
     private Date pkDate;
     private Time pkTime;
     private String stadium;
@@ -50,11 +49,11 @@ public class MatchEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        MatchEntity that = (MatchEntity) o;
+        Match match = (Match) o;
 
-        if (pkDate != null ? !pkDate.equals(that.pkDate) : that.pkDate != null) return false;
-        if (pkTime != null ? !pkTime.equals(that.pkTime) : that.pkTime != null) return false;
-        if (stadium != null ? !stadium.equals(that.stadium) : that.stadium != null) return false;
+        if (pkDate != null ? !pkDate.equals(match.pkDate) : match.pkDate != null) return false;
+        if (pkTime != null ? !pkTime.equals(match.pkTime) : match.pkTime != null) return false;
+        if (stadium != null ? !stadium.equals(match.stadium) : match.stadium != null) return false;
 
         return true;
     }
