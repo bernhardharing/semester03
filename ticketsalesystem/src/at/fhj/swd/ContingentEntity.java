@@ -55,27 +55,4 @@ public class ContingentEntity {
         this.fkMatchTime = fkMatchTime;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        ContingentEntity that = (ContingentEntity) o;
-
-        if (id != null ? !id.equals(that.id) : that.id != null) return false;
-        if (quantity != null ? !quantity.equals(that.quantity) : that.quantity != null) return false;
-        if (fkMatchDate != null ? !fkMatchDate.equals(that.fkMatchDate) : that.fkMatchDate != null) return false;
-        if (fkMatchTime != null ? !fkMatchTime.equals(that.fkMatchTime) : that.fkMatchTime != null) return false;
-
-        return true;
-    }
-
-    @Override
-    public int hashCode() {
-        int result = id != null ? id.hashCode() : 0;
-        result = 31 * result + (quantity != null ? quantity.hashCode() : 0);
-        result = 31 * result + (fkMatchDate != null ? fkMatchDate.hashCode() : 0);
-        result = 31 * result + (fkMatchTime != null ? fkMatchTime.hashCode() : 0);
-        return result;
-    }
 }
