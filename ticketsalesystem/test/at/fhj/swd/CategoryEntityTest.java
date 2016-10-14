@@ -48,4 +48,11 @@ public class CategoryEntityTest{
         manager.persist (category);
         transaction.commit();
     }
+
+    @Test public void delete() {
+        transaction.begin ();
+        assertNotNull (category);
+        manager.remove(category);
+        transaction.commit();
+    }
 }
