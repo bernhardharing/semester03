@@ -8,7 +8,6 @@ import javax.persistence.*;
 @Entity
 @Table(name = "with_track", schema = "public", catalog = "haring")
 public class WithTrack {
-    @Id
     private Integer pkId;
     private String location;
     private String totalCapacity;
@@ -79,10 +78,9 @@ public class WithTrack {
         result = 31 * result + (numberTracks != null ? numberTracks.hashCode() : 0);
         return result;
     }
-
-    @Id
     private String id;
 
+    @Id
     public String getId() {
         return id;
     }
