@@ -1,9 +1,6 @@
 package at.fhj.swd;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /**
  * Created by NUC on 14.10.2016.
@@ -11,16 +8,38 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "without_track", schema = "public", catalog = "haring")
 public class WithoutTrack {
-    private Integer fkStadiumId;
+    private Integer pkId;
+    private String location;
+    private String totalCapacity;
 
     @Basic
-    @Column(name = "fk_stadium_id")
-    public Integer getFkStadiumId() {
-        return fkStadiumId;
+    @Column(name = "pk_id")
+    public Integer getPkId() {
+        return pkId;
     }
 
-    public void setFkStadiumId(Integer fkStadiumId) {
-        this.fkStadiumId = fkStadiumId;
+    public void setPkId(Integer pkId) {
+        this.pkId = pkId;
+    }
+
+    @Basic
+    @Column(name = "location")
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    @Basic
+    @Column(name = "total_capacity")
+    public String getTotalCapacity() {
+        return totalCapacity;
+    }
+
+    public void setTotalCapacity(String totalCapacity) {
+        this.totalCapacity = totalCapacity;
     }
 
     @Override
@@ -30,19 +49,25 @@ public class WithoutTrack {
 
         WithoutTrack that = (WithoutTrack) o;
 
-        if (fkStadiumId != null ? !fkStadiumId.equals(that.fkStadiumId) : that.fkStadiumId != null) return false;
+        if (pkId != null ? !pkId.equals(that.pkId) : that.pkId != null) return false;
+        if (location != null ? !location.equals(that.location) : that.location != null) return false;
+        if (totalCapacity != null ? !totalCapacity.equals(that.totalCapacity) : that.totalCapacity != null)
+            return false;
 
         return true;
     }
 
     @Override
     public int hashCode() {
-        return fkStadiumId != null ? fkStadiumId.hashCode() : 0;
+        int result = pkId != null ? pkId.hashCode() : 0;
+        result = 31 * result + (location != null ? location.hashCode() : 0);
+        result = 31 * result + (totalCapacity != null ? totalCapacity.hashCode() : 0);
+        return result;
     }
 
     private String id;
 
-    @javax.persistence.Id
+    @Id
     public String getId() {
         return id;
     }

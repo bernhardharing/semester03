@@ -13,14 +13,13 @@ public class Category {
     private String description;
     private Integer price;
 
-    public Category(String description,int price){
-        setDescription(description);
+    public Category(){
+
+    }
+    public Category(String description, int price){
         setPrice(price);
+        setDescription(description);
     }
-
-    public Category() {
-    }
-
     @Id
     @Column(name = "description")
     public String getDescription() {

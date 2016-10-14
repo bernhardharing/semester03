@@ -22,6 +22,12 @@
             <basic name="quantity">
                 <column name="quantity"/>
             </basic>
+            <basic name="fkMatchDate">
+                <column name="fk_match_date"/>
+            </basic>
+            <basic name="fkMatchTime">
+                <column name="fk_match_time"/>
+            </basic>
         </attributes>
     </entity>
     <entity class="at.fhj.swd.Customer">
@@ -66,6 +72,15 @@
             <id name="placeSection">
                 <column name="place_section"/>
             </id>
+            <basic name="fkCategoryDescription">
+                <column name="fk_category_description"/>
+            </basic>
+            <basic name="fkStadionId">
+                <column name="fk_stadion_id"/>
+            </basic>
+            <basic name="fkTicketNumber">
+                <column name="fk_ticket_number"/>
+            </basic>
         </attributes>
     </entity>
     <entity class="at.fhj.swd.Stadium">
@@ -99,6 +114,18 @@
             <id name="pkId">
                 <column name="pk_id"/>
             </id>
+            <basic name="fkTeamAId">
+                <column name="fk_team_a_id"/>
+            </basic>
+            <basic name="fkTeamBId">
+                <column name="fk_team_b_id"/>
+            </basic>
+            <basic name="fkMatchDate">
+                <column name="fk_match_date"/>
+            </basic>
+            <basic name="fkMatchTime">
+                <column name="fk_match_time"/>
+            </basic>
         </attributes>
     </entity>
     <entity class="at.fhj.swd.Ticket">
@@ -110,14 +137,35 @@
             <basic name="date">
                 <column name="date"/>
             </basic>
+            <basic name="fkCustomerNumber">
+                <column name="fk_customer_number"/>
+            </basic>
+            <basic name="fkContingentId">
+                <column name="fk_contingent_id"/>
+            </basic>
+            <basic name="fkPlaceNumber">
+                <column name="fk_place_number"/>
+            </basic>
+            <basic name="fkPlaceRow">
+                <column name="fk_place_row"/>
+            </basic>
+            <basic name="fkPlaceSection">
+                <column name="fk_place_section"/>
+            </basic>
         </attributes>
     </entity>
     <entity class="at.fhj.swd.WithTrack">
         <table name="with_track" schema="public" catalog="haring"/>
         <attributes>
             <id name="id"/>
-            <basic name="fkStadiumId">
-                <column name="fk_stadium_id"/>
+            <basic name="pkId">
+                <column name="pk_id"/>
+            </basic>
+            <basic name="location">
+                <column name="location"/>
+            </basic>
+            <basic name="totalCapacity">
+                <column name="total_capacity"/>
             </basic>
             <basic name="numberTracks">
                 <column name="number_tracks"/>
@@ -128,8 +176,14 @@
         <table name="without_track" schema="public" catalog="haring"/>
         <attributes>
             <id name="id"/>
-            <basic name="fkStadiumId">
-                <column name="fk_stadium_id"/>
+            <basic name="pkId">
+                <column name="pk_id"/>
+            </basic>
+            <basic name="location">
+                <column name="location"/>
+            </basic>
+            <basic name="totalCapacity">
+                <column name="total_capacity"/>
             </basic>
         </attributes>
     </entity>
