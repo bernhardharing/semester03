@@ -73,14 +73,11 @@ CREATE TABLE public.PLACE
 
 CREATE TABLE public.WITH_TRACK
 (
-    fk_stadium_id INT NOT NULL,
-    number_tracks INT
-);
+  number_tracks INT
+) INHERITS (STADIUM);
 
 CREATE TABLE public.WITHOUT_TRACK
-(
-    fk_stadium_id INT NOT NULL
-);
+()INHERITS (STADIUM);
 -- Contingent
 ALTER TABLE public.contingent
   ADD CONSTRAINT contingent_match_date_time
