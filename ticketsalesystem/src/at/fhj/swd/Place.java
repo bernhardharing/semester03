@@ -6,7 +6,6 @@ import javax.persistence.*;
  * Created by NUC on 14.10.2016.
  */
 @Entity
-@IdClass(PlacePK.class)
 public class Place {
     private Integer placeNumber;
     private Integer placeRow;

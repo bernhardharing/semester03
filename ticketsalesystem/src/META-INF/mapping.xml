@@ -46,7 +46,6 @@
     </entity>
     <entity class="at.fhj.swd.Match">
         <table name="match" schema="public" catalog="haring"/>
-        <id-class class="at.fhj.swd.MatchPK"/>
         <attributes>
             <id name="pkDate">
                 <column name="pk_date"/>
@@ -61,7 +60,6 @@
     </entity>
     <entity class="at.fhj.swd.Place">
         <table name="place" schema="public" catalog="haring"/>
-        <id-class class="at.fhj.swd.PlacePK"/>
         <attributes>
             <id name="placeNumber">
                 <column name="place_number"/>

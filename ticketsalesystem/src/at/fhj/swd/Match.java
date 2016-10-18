@@ -8,7 +8,6 @@ import java.sql.Time;
  * Created by NUC on 14.10.2016.
  */
 @Entity
-@IdClass(MatchPK.class)
 public class Match {
     private Date pkDate;
     private Time pkTime;
