@@ -3,23 +3,24 @@ package at.fhj.swd;
 import javax.persistence.*;
 
 /**
- * Created by NUC on 14.10.2016.
+ * Created by bernhard on 18.10.2016.
  */
 @Entity
 @Table(name = "without_track", schema = "public", catalog = "haring")
 public class WithoutTrack {
-    private Integer pkId;
+    @Id
+    private Integer id;
     private String location;
     private String totalCapacity;
 
     @Basic
-    @Column(name = "pk_id")
-    public Integer getPkId() {
-        return pkId;
+    @Column(name = "id")
+    public Integer getId() {
+        return id;
     }
 
-    public void setPkId(Integer pkId) {
-        this.pkId = pkId;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     @Basic
@@ -49,7 +50,7 @@ public class WithoutTrack {
 
         WithoutTrack that = (WithoutTrack) o;
 
-        if (pkId != null ? !pkId.equals(that.pkId) : that.pkId != null) return false;
+        if (id != null ? !id.equals(that.id) : that.id != null) return false;
         if (location != null ? !location.equals(that.location) : that.location != null) return false;
         if (totalCapacity != null ? !totalCapacity.equals(that.totalCapacity) : that.totalCapacity != null)
             return false;
@@ -59,20 +60,9 @@ public class WithoutTrack {
 
     @Override
     public int hashCode() {
-        int result = pkId != null ? pkId.hashCode() : 0;
+        int result = id != null ? id.hashCode() : 0;
         result = 31 * result + (location != null ? location.hashCode() : 0);
         result = 31 * result + (totalCapacity != null ? totalCapacity.hashCode() : 0);
         return result;
-    }
-
-    private String id;
-
-    @Id
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
     }
 }

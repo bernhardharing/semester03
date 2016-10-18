@@ -1,26 +1,29 @@
 package at.fhj.swd;
 
+import com.sun.javafx.beans.IDProperty;
+
 import javax.persistence.*;
 
 /**
- * Created by NUC on 14.10.2016.
+ * Created by bernhard on 18.10.2016.
  */
 @Entity
 @Table(name = "with_track", schema = "public", catalog = "haring")
 public class WithTrack {
-    private Integer pkId;
+    @Id
+    private Integer id;
     private String location;
     private String totalCapacity;
     private Integer numberTracks;
 
     @Basic
-    @Column(name = "pk_id")
-    public Integer getPkId() {
-        return pkId;
+    @Column(name = "id")
+    public Integer getId() {
+        return id;
     }
 
-    public void setPkId(Integer pkId) {
-        this.pkId = pkId;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     @Basic
@@ -60,7 +63,7 @@ public class WithTrack {
 
         WithTrack withTrack = (WithTrack) o;
 
-        if (pkId != null ? !pkId.equals(withTrack.pkId) : withTrack.pkId != null) return false;
+        if (id != null ? !id.equals(withTrack.id) : withTrack.id != null) return false;
         if (location != null ? !location.equals(withTrack.location) : withTrack.location != null) return false;
         if (totalCapacity != null ? !totalCapacity.equals(withTrack.totalCapacity) : withTrack.totalCapacity != null)
             return false;
@@ -72,20 +75,10 @@ public class WithTrack {
 
     @Override
     public int hashCode() {
-        int result = pkId != null ? pkId.hashCode() : 0;
+        int result = id != null ? id.hashCode() : 0;
         result = 31 * result + (location != null ? location.hashCode() : 0);
         result = 31 * result + (totalCapacity != null ? totalCapacity.hashCode() : 0);
         result = 31 * result + (numberTracks != null ? numberTracks.hashCode() : 0);
         return result;
-    }
-    private String id;
-
-    @Id
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
     }
 }

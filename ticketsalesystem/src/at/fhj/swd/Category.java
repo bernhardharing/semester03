@@ -1,25 +1,31 @@
 package at.fhj.swd;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
+
+
 
 /**
- * Created by NUC on 14.10.2016.
+ * Created by bernhard on 18.10.2016.
  */
 @Entity
+@NamedQueries({
+        @NamedQuery(name = "Category.findAll",
+                query = "SELECT c FROM Category c"),
+//        @NamedQuery(name = "Category.findByBezeichnung",
+//                query = "SELECT a FROM Artikelstamm a WHERE a.bezeichnung = :bezeichnung")
+})
 public class Category {
     private String description;
     private Integer price;
 
-    public Category(){
+    public Category(String description, Integer price) {
+        this.description = description;
+        this.price = price;
+    }
 
+    public Category() {
     }
-    public Category(String description, int price){
-        setPrice(price);
-        setDescription(description);
-    }
+
     @Id
     @Column(name = "description")
     public String getDescription() {

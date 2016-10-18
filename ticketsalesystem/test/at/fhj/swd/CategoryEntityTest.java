@@ -1,5 +1,6 @@
 package at.fhj.swd;
 
+import com.sun.org.apache.xerces.internal.xs.StringList;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
@@ -10,6 +11,9 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.Assert.*;
 
@@ -47,6 +51,13 @@ public class CategoryEntityTest{
         assertNotNull (category);
         manager.persist (category);
         transaction.commit();
+        CategoryRepository categoryRepository = new CategoryRepository(manager);
+
+        List<Category> list = categoryRepository.findAll();
+        for (int i=0; i< list.size();i++){
+            Category category = list.get(0);
+            System.out.println(category.getDescription() + category.getPrice());
+        }
     }
 
     @Test public void delete() {

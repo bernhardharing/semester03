@@ -6,22 +6,22 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 /**
- * Created by NUC on 14.10.2016.
+ * Created by bernhard on 18.10.2016.
  */
 @Entity
 public class Stadium {
-    private Integer pkId;
+    private Integer id;
     private String location;
     private String totalCapacity;
 
     @Id
-    @Column(name = "pk_id")
-    public Integer getPkId() {
-        return pkId;
+    @Column(name = "id")
+    public Integer getId() {
+        return id;
     }
 
-    public void setPkId(Integer pkId) {
-        this.pkId = pkId;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     @Basic
@@ -51,7 +51,7 @@ public class Stadium {
 
         Stadium stadium = (Stadium) o;
 
-        if (pkId != null ? !pkId.equals(stadium.pkId) : stadium.pkId != null) return false;
+        if (id != null ? !id.equals(stadium.id) : stadium.id != null) return false;
         if (location != null ? !location.equals(stadium.location) : stadium.location != null) return false;
         if (totalCapacity != null ? !totalCapacity.equals(stadium.totalCapacity) : stadium.totalCapacity != null)
             return false;
@@ -61,7 +61,7 @@ public class Stadium {
 
     @Override
     public int hashCode() {
-        int result = pkId != null ? pkId.hashCode() : 0;
+        int result = id != null ? id.hashCode() : 0;
         result = 31 * result + (location != null ? location.hashCode() : 0);
         result = 31 * result + (totalCapacity != null ? totalCapacity.hashCode() : 0);
         return result;

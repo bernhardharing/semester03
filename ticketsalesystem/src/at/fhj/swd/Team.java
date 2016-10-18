@@ -1,22 +1,26 @@
 package at.fhj.swd;
 
-import javax.persistence.*;
+import javax.persistence.Basic;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
 /**
- * Created by NUC on 14.10.2016.
+ * Created by bernhard on 18.10.2016.
  */
 @Entity
 public class Team {
-    @OneToMany private Integer pkId;
+    private Integer id;
     private String name;
 
-    @Column(name = "pk_id")
-    public Integer getPkId() {
-        return pkId;
+    @Id
+    @Column(name = "id")
+    public Integer getId() {
+        return id;
     }
 
-    public void setPkId(Integer pkId) {
-        this.pkId = pkId;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     @Basic
@@ -36,7 +40,7 @@ public class Team {
 
         Team team = (Team) o;
 
-        if (pkId != null ? !pkId.equals(team.pkId) : team.pkId != null) return false;
+        if (id != null ? !id.equals(team.id) : team.id != null) return false;
         if (name != null ? !name.equals(team.name) : team.name != null) return false;
 
         return true;
@@ -44,7 +48,7 @@ public class Team {
 
     @Override
     public int hashCode() {
-        int result = pkId != null ? pkId.hashCode() : 0;
+        int result = id != null ? id.hashCode() : 0;
         result = 31 * result + (name != null ? name.hashCode() : 0);
         return result;
     }
