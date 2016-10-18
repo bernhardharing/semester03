@@ -68,7 +68,7 @@ public class Artikelstamm
 
 		this.artikelnummer = artikelnummer;
 	}
-
+//
 	public String getBezeichnung()
 	{
 		return bezeichnung;
