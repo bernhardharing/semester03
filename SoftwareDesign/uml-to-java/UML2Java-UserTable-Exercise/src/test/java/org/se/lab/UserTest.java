@@ -3,7 +3,7 @@ package org.se.lab;
 import org.junit.Assert;
 import org.junit.Test;
 
-import java.org.se.lab.User;
+
 
 public class UserTest
 {
