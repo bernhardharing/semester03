@@ -7,7 +7,7 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "without_track", schema = "public", catalog = "haring")
-public class WithoutTrack {
+public class WithoutTrack extends Stadium {
     @Id
     private Integer id;
     private String location;

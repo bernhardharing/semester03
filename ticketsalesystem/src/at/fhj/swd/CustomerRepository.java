@@ -1,15 +1,14 @@
 package at.fhj.swd;
 
-import javax.persistence.*;
+import javax.persistence.EntityManager;
+import javax.persistence.TypedQuery;
 import java.util.List;
 
 /**
- * Created by bernhard on 18.10.2016.
+ * Created by Bogdan on 24.10.2016.
  */
-
-public class CategoryRepository {
-
-    public CategoryRepository(final EntityManager entityManager)
+public class CustomerRepository {
+    public CustomerRepository(final EntityManager entityManager)
     {
         setEntityManager( entityManager );
     }
@@ -24,9 +23,9 @@ public class CategoryRepository {
     }
 
     //NamedQuery FindAll
-    public List<Category> findAll()
+    public List<Customer> findAll()
     {
-        TypedQuery<Category> query = entityManager.createNamedQuery( "Category.findAll", Category.class);
+        TypedQuery<Customer> query = entityManager.createNamedQuery( "Customer.findAll", Customer.class);
 
         return query.getResultList();
     }

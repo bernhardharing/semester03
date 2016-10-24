@@ -4,15 +4,32 @@ import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 
 /**
  * Created by bernhard on 18.10.2016.
  */
 @Entity
+@NamedQueries({
+        @NamedQuery(name = "Customer.findAll",
+                query = "SELECT c FROM Category c"),
+})
+
 public class Customer {
     private Integer customerNumber;
     private String name;
     private String address;
+
+    public Customer(Integer customerNumber, String name, String address) {
+        setCustomerNumber(customerNumber);
+        setName(name);
+        setAddress(address);
+    }
+
+    public Customer() {
+    }
+
 
     @Id
     @Column(name = "customer_number")
