@@ -13,6 +13,16 @@ public class WithoutTrack extends Stadium {
     private String location;
     private Integer totalCapacity;
 
+    public WithoutTrack(Integer id, String location, Integer totalCapacity, Integer id1, String location1, Integer totalCapacity1) {
+        super(id, location, totalCapacity);
+        this.id = id1;
+        this.location = location1;
+        this.totalCapacity = totalCapacity1;
+    }
+
+    protected WithoutTrack() {
+    }
+
     @Basic
     @Column(name = "id")
     public Integer getId() {

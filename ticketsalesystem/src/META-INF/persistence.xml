@@ -22,6 +22,7 @@
             <property name="javax.persistence.jdbc.password" value="haring4fh"/>
             <!-- log at warn level (default : ERROR) -->
             <property name="javax.persistence.logging.level" value="WARNING"/>
+            <property name="eclipselink.logging.parameters" value="true"/>
         </properties>
     </persistence-unit>
 </persistence>

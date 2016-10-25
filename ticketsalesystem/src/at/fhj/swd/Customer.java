@@ -17,13 +17,13 @@ public class Customer {
             allocationSize = 1)
 
     @Id @GeneratedValue(generator="CustomerIdGenerator")
-
+    @Column(name = "customer_number")
     private Integer customerNumber;
-    private String name;
-    private String address;
+
+
+
 
     public Customer( String name, String address) {
-//        setCustomerNumber(customerNumber);
         setName(name);
         setAddress(address);
     }
@@ -32,8 +32,6 @@ public class Customer {
     }
 
 
-    @Id
-    @Column(name = "customer_number")
     public Integer getCustomerNumber() {
         return customerNumber;
     }
@@ -42,8 +40,8 @@ public class Customer {
         this.customerNumber = customerNumber;
     }
 
-    @Basic
     @Column(name = "name")
+    private String name;
     public String getName() {
         return name;
     }
@@ -52,8 +50,9 @@ public class Customer {
         this.name = name;
     }
 
-    @Basic
+
     @Column(name = "address")
+    private String address;
     public String getAddress() {
         return address;
     }

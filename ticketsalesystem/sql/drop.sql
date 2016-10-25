@@ -6,9 +6,11 @@ DROP TABLE place CASCADE;
 DROP TABLE stadium CASCADE;
 DROP TABLE team CASCADE;
 DROP TABLE team_match CASCADE;
-DROP TABLE with_track CASCADE;
-DROP TABLE without_track CASCADE;
+-- DROP TABLE with_track CASCADE;
+-- DROP TABLE without_track CASCADE;
 DROP TABLE ticket CASCADE;
+DROP SEQUENCE public.Customer_Sequence;
+
 
 
 
