@@ -13,11 +13,10 @@ import java.util.List;
 import static org.junit.Assert.assertNotNull;
 
 /**
- * Created by Bogdan on 24.10.2016.
+ * Created by Bogdan on 25.10.2016.
  */
-public class CustomerTest {
-
-    private static Customer customer;
+public class StadiumTest {
+    private static Stadium stadium;
 
     final static String persistenceUnitName = "persistence";
     static EntityManagerFactory factory;
@@ -26,7 +25,7 @@ public class CustomerTest {
 
     @BeforeClass
     public static void prepare(){
-        customer = new Customer("Bogdan","Teststraße 2");
+        stadium = new Stadium(1,"Arena",200);
         factory = Persistence.createEntityManagerFactory( persistenceUnitName );
         manager = factory.createEntityManager();
         transaction = manager.getTransaction();
@@ -39,25 +38,25 @@ public class CustomerTest {
         factory.close();
     }
 
-    @Test public void create () {
+    @Test
+    public void create () {
         transaction.begin ();
-        assertNotNull (customer);
-        manager.persist (customer);
+        assertNotNull (stadium);
+        manager.persist (stadium);
         transaction.commit();
-        CustomerRepository customerRepository = new CustomerRepository(manager);
+        StadiumRepository stadiumRepository = new StadiumRepository(manager);
 
-        List<Customer> list = customerRepository.findAll();
+        List<Stadium> list = stadiumRepository.findAll();
         for (int i=0; i< list.size();i++){
-            Customer customer = list.get(0);
-            System.out.println(customer.getName() + customer.getAddress());
+            Stadium stadium = list.get(0);
+            System.out.println(stadium.getLocation() + stadium.getTotalCapacity());
         }
     }
 
     @Test public void delete() {
         transaction.begin ();
-        assertNotNull (customer);
-        manager.remove(customer);
+        assertNotNull (stadium);
+        manager.remove(stadium);
         transaction.commit();
     }
-
 }

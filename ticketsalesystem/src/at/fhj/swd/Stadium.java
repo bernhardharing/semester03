@@ -1,18 +1,28 @@
 package at.fhj.swd;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 /**
  * Created by bernhard on 18.10.2016.
  */
 @Entity
+@NamedQueries({
+        @NamedQuery(name = "Stadium.findAll",
+                query = "SELECT c FROM Stadium c"),
+})
 public class Stadium {
     private Integer id;
     private String location;
-    private String totalCapacity;
+    private Integer totalCapacity;
+
+    public Stadium(Integer id, String location, Integer totalCapacity) {
+        setId(id);
+        setLocation(location);
+        setTotalCapacity(totalCapacity);
+    }
+
+    public Stadium() {
+    }
 
     @Id
     @Column(name = "id")
@@ -36,11 +46,11 @@ public class Stadium {
 
     @Basic
     @Column(name = "total_capacity")
-    public String getTotalCapacity() {
+    public Integer getTotalCapacity() {
         return totalCapacity;
     }
 
-    public void setTotalCapacity(String totalCapacity) {
+    public void setTotalCapacity(Integer totalCapacity) {
         this.totalCapacity = totalCapacity;
     }
 

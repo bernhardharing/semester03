@@ -13,7 +13,7 @@ public class WithTrack {
     @Id
     private Integer id;
     private String location;
-    private String totalCapacity;
+    private Integer totalCapacity;
     private Integer numberTracks;
 
     @Basic
@@ -38,11 +38,11 @@ public class WithTrack {
 
     @Basic
     @Column(name = "total_capacity")
-    public String getTotalCapacity() {
+    public Integer getTotalCapacity() {
         return totalCapacity;
     }
 
-    public void setTotalCapacity(String totalCapacity) {
+    public void setTotalCapacity(Integer totalCapacity) {
         this.totalCapacity = totalCapacity;
     }
 

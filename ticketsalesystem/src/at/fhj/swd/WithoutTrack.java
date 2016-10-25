@@ -11,7 +11,7 @@ public class WithoutTrack extends Stadium {
     @Id
     private Integer id;
     private String location;
-    private String totalCapacity;
+    private Integer totalCapacity;
 
     @Basic
     @Column(name = "id")
@@ -35,11 +35,11 @@ public class WithoutTrack extends Stadium {
 
     @Basic
     @Column(name = "total_capacity")
-    public String getTotalCapacity() {
+    public Integer getTotalCapacity() {
         return totalCapacity;
     }
 
-    public void setTotalCapacity(String totalCapacity) {
+    public void setTotalCapacity(Integer totalCapacity) {
         this.totalCapacity = totalCapacity;
     }
 
