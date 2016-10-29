@@ -7,7 +7,11 @@ import javax.persistence.*;
  */
 @Entity
 public class Place {
-    @Id
+    @SequenceGenerator( name="PlaceIdGenerator",
+            sequenceName="Place_Sequence",
+            allocationSize = 1)
+
+    @Id @GeneratedValue(generator="PlaceIdGenerator")
     private Integer id;
 
     @ManyToOne
@@ -17,10 +21,8 @@ public class Place {
 //    @OneToOne
 //    private Ticket ticket;
 
-    public Place(Integer id, Category category) {
-        this.id = id;
+    public Place(Category category) {
         this.category = category;
-
     }
 
     public Place() {

@@ -47,7 +47,7 @@ public class PlaceTest {
         category = new Category("billig",10);
         manager.persist (category);
 
-        place = new Place(5,category);
+        place = new Place(category);
         manager.persist (place);
 
         transaction.commit();

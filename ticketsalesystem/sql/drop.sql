@@ -10,6 +10,7 @@ DROP TABLE team_match CASCADE;
 -- DROP TABLE without_track CASCADE;
 DROP TABLE ticket CASCADE;
 DROP SEQUENCE public.customer_sequence;
+DROP SEQUENCE public.place_sequence;
 
 
 
