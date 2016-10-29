@@ -2,7 +2,9 @@ package at.fhj.swd;
 
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
+import org.junit.FixMethodOrder;
 import org.junit.Test;
+import org.junit.runners.MethodSorters;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -15,6 +17,7 @@ import static org.junit.Assert.assertNotNull;
 /**
  * Created by Bogdan on 25.10.2016.
  */
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class PlaceTest {
     private static Place place;
     private static Category category;
@@ -39,7 +42,7 @@ public class PlaceTest {
     }
 
     @Test
-    public void create () {
+    public void A_create () {
         transaction.begin ();
         category = new Category("billig",10);
         manager.persist (category);
@@ -53,7 +56,7 @@ public class PlaceTest {
 
     }
 
-    @Test public void delete() {
+    @Test public void B_delete() {
         transaction.begin ();
         manager.remove(place);
         manager.remove(category);
