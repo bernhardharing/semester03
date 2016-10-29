@@ -24,6 +24,7 @@ public class TicketTest {
     private static Ticket ticket;
     private static Category category;
     private static Place place;
+    private static Customer customer;
 
     final static String persistenceUnitName = "persistence";
     static EntityManagerFactory factory;
@@ -38,11 +39,12 @@ public class TicketTest {
 
         category = new Category("billig",10);
 
+        customer = new Customer("Bogdan","Teststraße 2");
         place = new Place(category);
 
         java.util.Date utilDate = new java.util.Date();
         java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
-        ticket = new Ticket(4,sqlDate,place);
+        ticket = new Ticket(4,sqlDate,place,customer);
     }
 
 
@@ -58,6 +60,7 @@ public class TicketTest {
 
         manager.persist (category);
         manager.persist (place);
+        manager.persist (customer);
         manager.persist (ticket);
 
         transaction.commit();
@@ -67,8 +70,8 @@ public class TicketTest {
     @Test public void B_delete() {
         transaction.begin ();
         manager.remove(ticket);
-//        manager.remove(place);
-//        manager.remove(category);
+        manager.remove(place);
+        manager.remove(category);
         transaction.commit();
     }
 }

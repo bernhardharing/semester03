@@ -17,10 +17,15 @@ public class Ticket {
     @JoinColumn(name="fk_place_id")
     private Place place;
 
-    public Ticket(Integer ticketNumber, Date date, Place place) {
+    @ManyToOne
+    @JoinColumn(name="fk_customer_number")
+    private Customer customer;
+
+    public Ticket(Integer ticketNumber, Date date, Place place,Customer customer) {
         this.ticketNumber = ticketNumber;
         this.date = date;
         this.place = place;
+        this.customer = customer;
     }
 
     public Ticket() {
