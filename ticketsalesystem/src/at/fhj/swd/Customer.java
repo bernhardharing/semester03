@@ -3,7 +3,7 @@ package at.fhj.swd;
 import javax.persistence.*;
 
 /**
- * Created by bernhard on 18.10.2016.
+ * Created by NUC on 29.10.2016.
  */
 @Entity
 @NamedQueries({
@@ -19,19 +19,19 @@ public class Customer {
     @Id @GeneratedValue(generator="CustomerIdGenerator")
     @Column(name = "customer_number")
     private Integer customerNumber;
+    private String name;
+    private String address;
 
-
-
-
-    public Customer( String name, String address) {
-        setName(name);
-        setAddress(address);
+    public Customer(String name, String address) {
+        this.name = name;
+        this.address = address;
     }
 
-    public Customer() {
+    protected Customer() {
     }
 
 
+    @Column(name = "customer_number")
     public Integer getCustomerNumber() {
         return customerNumber;
     }
@@ -41,7 +41,6 @@ public class Customer {
     }
 
     @Column(name = "name")
-    private String name;
     public String getName() {
         return name;
     }
@@ -50,9 +49,7 @@ public class Customer {
         this.name = name;
     }
 
-
     @Column(name = "address")
-    private String address;
     public String getAddress() {
         return address;
     }

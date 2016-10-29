@@ -1,47 +1,36 @@
 package at.fhj.swd;
 
+import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.IdClass;
 
 /**
- * Created by bernhard on 18.10.2016.
+ * Created by NUC on 29.10.2016.
  */
 @Entity
 public class Place {
-    private Integer placeNumber;
-    private Integer placeRow;
-    private Integer placeSection;
+    private Integer id;
+    private Integer placeId;
 
     @Id
-    @Column(name = "place_number")
-    public Integer getPlaceNumber() {
-        return placeNumber;
+    @Column(name = "id")
+    public Integer getId() {
+        return id;
     }
 
-    public void setPlaceNumber(Integer placeNumber) {
-        this.placeNumber = placeNumber;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    @Id
-    @Column(name = "place_row")
-    public Integer getPlaceRow() {
-        return placeRow;
+    @Basic
+    @Column(name = "place_id")
+    public Integer getPlaceId() {
+        return placeId;
     }
 
-    public void setPlaceRow(Integer placeRow) {
-        this.placeRow = placeRow;
-    }
-
-    @Id
-    @Column(name = "place_section")
-    public Integer getPlaceSection() {
-        return placeSection;
-    }
-
-    public void setPlaceSection(Integer placeSection) {
-        this.placeSection = placeSection;
+    public void setPlaceId(Integer placeId) {
+        this.placeId = placeId;
     }
 
     @Override
@@ -51,18 +40,16 @@ public class Place {
 
         Place place = (Place) o;
 
-        if (placeNumber != null ? !placeNumber.equals(place.placeNumber) : place.placeNumber != null) return false;
-        if (placeRow != null ? !placeRow.equals(place.placeRow) : place.placeRow != null) return false;
-        if (placeSection != null ? !placeSection.equals(place.placeSection) : place.placeSection != null) return false;
+        if (id != null ? !id.equals(place.id) : place.id != null) return false;
+        if (placeId != null ? !placeId.equals(place.placeId) : place.placeId != null) return false;
 
         return true;
     }
 
     @Override
     public int hashCode() {
-        int result = placeNumber != null ? placeNumber.hashCode() : 0;
-        result = 31 * result + (placeRow != null ? placeRow.hashCode() : 0);
-        result = 31 * result + (placeSection != null ? placeSection.hashCode() : 0);
+        int result = id != null ? id.hashCode() : 0;
+        result = 31 * result + (placeId != null ? placeId.hashCode() : 0);
         return result;
     }
 }

@@ -9,7 +9,7 @@ DROP TABLE team_match CASCADE;
 -- DROP TABLE with_track CASCADE;
 -- DROP TABLE without_track CASCADE;
 DROP TABLE ticket CASCADE;
-DROP SEQUENCE public.Customer_Sequence;
+DROP SEQUENCE public.customer_sequence;
 
 
 

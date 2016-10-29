@@ -1,20 +1,20 @@
 package at.fhj.swd;
 
-import com.sun.javafx.beans.IDProperty;
-
 import javax.persistence.*;
 
 /**
- * Created by bernhard on 18.10.2016.
+ * Created by NUC on 29.10.2016.
  */
 @Entity
 @Table(name = "with_track", schema = "public", catalog = "haring")
-public class WithTrack {
+public class WithTrack extends Stadium{
     @Id
     private Integer id;
     private String location;
     private Integer totalCapacity;
     private Integer numberTracks;
+
+
 
     @Basic
     @Column(name = "id")

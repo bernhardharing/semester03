@@ -9,7 +9,6 @@
         <class>at.fhj.swd.Place</class>
         <class>at.fhj.swd.Stadium</class>
         <class>at.fhj.swd.Team</class>
-        <class>at.fhj.swd.TeamMatch</class>
         <class>at.fhj.swd.Ticket</class>
         <class>at.fhj.swd.WithTrack</class>
         <class>at.fhj.swd.WithoutTrack</class>

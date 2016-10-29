@@ -1,19 +1,33 @@
 package at.fhj.swd;
 
-import javax.persistence.*;
+import javax.persistence.Basic;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.sql.Date;
 import java.sql.Time;
 
 /**
- * Created by bernhard on 18.10.2016.
+ * Created by NUC on 29.10.2016.
  */
 @Entity
 public class Match {
+    private Integer id;
     private Date date;
     private Time time;
     private String stadium;
 
     @Id
+    @Column(name = "id")
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    @Basic
     @Column(name = "date")
     public Date getDate() {
         return date;
@@ -23,7 +37,7 @@ public class Match {
         this.date = date;
     }
 
-    @Id
+    @Basic
     @Column(name = "time")
     public Time getTime() {
         return time;
@@ -50,6 +64,7 @@ public class Match {
 
         Match match = (Match) o;
 
+        if (id != null ? !id.equals(match.id) : match.id != null) return false;
         if (date != null ? !date.equals(match.date) : match.date != null) return false;
         if (time != null ? !time.equals(match.time) : match.time != null) return false;
         if (stadium != null ? !stadium.equals(match.stadium) : match.stadium != null) return false;
@@ -59,7 +74,8 @@ public class Match {
 
     @Override
     public int hashCode() {
-        int result = date != null ? date.hashCode() : 0;
+        int result = id != null ? id.hashCode() : 0;
+        result = 31 * result + (date != null ? date.hashCode() : 0);
         result = 31 * result + (time != null ? time.hashCode() : 0);
         result = 31 * result + (stadium != null ? stadium.hashCode() : 0);
         return result;

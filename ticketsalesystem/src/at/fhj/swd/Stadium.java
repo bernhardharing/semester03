@@ -3,7 +3,7 @@ package at.fhj.swd;
 import javax.persistence.*;
 
 /**
- * Created by bernhard on 18.10.2016.
+ * Created by NUC on 29.10.2016.
  */
 @Entity
 @NamedQueries({
