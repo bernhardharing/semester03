@@ -2,7 +2,9 @@ package at.fhj.swd;
 
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
+import org.junit.FixMethodOrder;
 import org.junit.Test;
+import org.junit.runners.MethodSorters;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -16,6 +18,7 @@ import static org.junit.Assert.assertNotNull;
 /**
  * Created by NUC on 13.10.2016.
  */
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class TicketTest {
 
     private static Ticket ticket;
@@ -33,6 +36,13 @@ public class TicketTest {
         manager = factory.createEntityManager();
         transaction = manager.getTransaction();
 
+        category = new Category("billig",10);
+
+        place = new Place(category);
+
+        java.util.Date utilDate = new java.util.Date();
+        java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
+        ticket = new Ticket(4,sqlDate,place);
     }
 
 
@@ -43,29 +53,22 @@ public class TicketTest {
         factory.close();
     }
 
-    @Test public void create () {
+    @Test public void A_create () {
         transaction.begin ();
-        category = new Category("billig",10);
+
         manager.persist (category);
-
-        place = new Place(category);
         manager.persist (place);
-
-        java.util.Date utilDate = new java.util.Date();
-        java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
-
-        ticket = new Ticket(4,sqlDate,place);
         manager.persist (ticket);
 
         transaction.commit();
 
     }
 
-    @Test public void delete() {
+    @Test public void B_delete() {
         transaction.begin ();
         manager.remove(ticket);
-        manager.remove(place);
-        manager.remove(category);
+//        manager.remove(place);
+//        manager.remove(category);
         transaction.commit();
     }
 }

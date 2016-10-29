@@ -14,21 +14,16 @@ import java.util.List;
 //        @NamedQuery(name = "Category.findByBezeichnung",
 //                query = "SELECT a FROM Artikelstamm a WHERE a.bezeichnung = :bezeichnung")
 })
+@Table(name = "category")
 public class Category {
     @Id
     private String description;
     private Integer price;
 
-    public List<Place> getPlace() {
-        return place;
-    }
 
-    public void setPlace(List<Place> place) {
-        this.place = place;
-    }
 
-    @OneToMany
-    List<Place> place = new ArrayList<Place>();
+//    @OneToMany
+//    List<Place> place = new ArrayList<Place>();
 
 
     public Category(String description, Integer price) {
