@@ -1,6 +1,8 @@
 package at.fhj.swd;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by NUC on 29.10.2016.
@@ -13,8 +15,13 @@ import javax.persistence.*;
 //                query = "SELECT a FROM Artikelstamm a WHERE a.bezeichnung = :bezeichnung")
 })
 public class Category {
+    @Id
     private String description;
     private Integer price;
+
+    @OneToMany (mappedBy = "category")
+    List<Place> place = new ArrayList<Place>();
+
 
     public Category(String description, Integer price) {
         this.description = description;
@@ -24,7 +31,7 @@ public class Category {
     public Category() {
     }
 
-    @Id
+
     @Column(name = "description")
     public String getDescription() {
         return description;

@@ -1,9 +1,6 @@
 package at.fhj.swd;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.sql.Date;
 
 /**
@@ -11,10 +8,14 @@ import java.sql.Date;
  */
 @Entity
 public class Ticket {
+    @Id
     private Integer ticketNumber;
     private Date date;
 
-    @Id
+    @OneToOne
+    private Place place;
+
+
     @Column(name = "ticket_number")
     public Integer getTicketNumber() {
         return ticketNumber;

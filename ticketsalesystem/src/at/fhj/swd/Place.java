@@ -1,19 +1,23 @@
 package at.fhj.swd;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 /**
  * Created by NUC on 29.10.2016.
  */
 @Entity
 public class Place {
+    @Id
     private Integer id;
     private Integer placeId;
 
-    @Id
+    @ManyToOne
+    private Category category;
+
+    @OneToOne
+    private Ticket ticket;
+
+
     @Column(name = "id")
     public Integer getId() {
         return id;
