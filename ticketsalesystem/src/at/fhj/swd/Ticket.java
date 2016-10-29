@@ -8,15 +8,25 @@ import java.sql.Date;
  */
 @Entity
 public class Ticket {
-    @Id
+    @Id @Column(name = "ticket_number")
     private Integer ticketNumber;
+    @Column(name = "date")
     private Date date;
 
     @OneToOne
+    @JoinColumn(name="fk_place_id")
     private Place place;
 
+    public Ticket(Integer ticketNumber, Date date, Place place) {
+        this.ticketNumber = ticketNumber;
+        this.date = date;
+        this.place = place;
+    }
 
-    @Column(name = "ticket_number")
+    public Ticket() {
+    }
+
+
     public Integer getTicketNumber() {
         return ticketNumber;
     }
@@ -25,8 +35,8 @@ public class Ticket {
         this.ticketNumber = ticketNumber;
     }
 
-    @Basic
-    @Column(name = "date")
+
+
     public Date getDate() {
         return date;
     }

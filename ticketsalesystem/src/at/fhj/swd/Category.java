@@ -49,7 +49,6 @@ public class Category {
         this.description = description;
     }
 
-    @Basic
     @Column(name = "price")
     public Integer getPrice() {
         return price;

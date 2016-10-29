@@ -18,8 +18,9 @@ public class Place {
     @JoinColumn(name="fk_category_description")
     private Category category;
 
-//    @OneToOne
-//    private Ticket ticket;
+    @OneToOne
+    @JoinColumn(name="fk_ticket_number")
+    private Ticket ticket;
 
     public Place(Category category) {
         this.category = category;
