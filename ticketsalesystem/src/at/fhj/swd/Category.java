@@ -21,7 +21,7 @@ public class Category {
     private Integer price;
 
 
-
+//TODO: Ask Teacher
 //    @OneToMany
 //    List<Place> place = new ArrayList<Place>();
 
