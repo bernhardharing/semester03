@@ -19,7 +19,15 @@ public class Category {
     private String description;
     private Integer price;
 
-    @OneToMany (mappedBy = "category")
+    public List<Place> getPlace() {
+        return place;
+    }
+
+    public void setPlace(List<Place> place) {
+        this.place = place;
+    }
+
+    @OneToMany
     List<Place> place = new ArrayList<Place>();
 
 

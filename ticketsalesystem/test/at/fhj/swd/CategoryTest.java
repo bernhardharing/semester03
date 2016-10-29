@@ -20,7 +20,7 @@ import static org.junit.Assert.*;
 /**
  * Created by NUC on 13.10.2016.
  */
-public class CategoryEntityTest{
+public class CategoryTest {
 
     private static Category category;
 

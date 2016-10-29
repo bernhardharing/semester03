@@ -11,10 +11,20 @@ public class Place {
     private Integer id;
 
     @ManyToOne
+    @JoinColumn(name="fk_category_description")
     private Category category;
 
-    @OneToOne
-    private Ticket ticket;
+//    @OneToOne
+//    private Ticket ticket;
+
+    public Place(Integer id, Category category) {
+        this.id = id;
+        this.category = category;
+
+    }
+
+    public Place() {
+    }
 
     @Column(name = "id")
     public Integer getId() {
