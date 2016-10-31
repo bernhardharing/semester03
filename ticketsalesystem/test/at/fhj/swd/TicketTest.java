@@ -51,7 +51,7 @@ public class TicketTest {
         contingent = new Contingent(20000,match);
 
 
-        ticket = new Ticket(4,sqlDate,place,customer,match,contingent);
+        ticket = new Ticket(sqlDate,place,customer,match,contingent);
     }
 
 

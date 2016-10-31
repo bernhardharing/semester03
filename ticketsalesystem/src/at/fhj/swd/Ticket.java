@@ -12,6 +12,11 @@ import java.sql.Date;
                 query = "SELECT t FROM Ticket t WHERE t.ticketNumber = :ticketNumber")
 })
 public class Ticket {
+    @SequenceGenerator( name="TicketIdGenerator",
+            sequenceName="Ticket_Sequence",
+            allocationSize = 1)
+
+    @GeneratedValue(generator="TicketIdGenerator")
     @Id @Column(name = "ticket_number")
     private Integer ticketNumber;
     @Column(name = "date")
@@ -41,8 +46,7 @@ public class Ticket {
     @JoinColumn(name="fk_contingent_id")
     private Contingent contingent;
 
-    public Ticket(Integer ticketNumber, Date date, Place place,Customer customer, Match match, Contingent contingent) {
-        this.ticketNumber = ticketNumber;
+    public Ticket(Date date, Place place,Customer customer, Match match, Contingent contingent) {
         this.date = date;
         this.place = place;
         this.customer = customer;
