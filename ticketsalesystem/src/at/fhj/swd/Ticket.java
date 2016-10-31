@@ -7,6 +7,10 @@ import java.sql.Date;
  * Created by NUC on 29.10.2016.
  */
 @Entity
+@NamedQueries({
+        @NamedQuery(name = "Ticket.findByTicketNumber",
+                query = "SELECT t FROM Ticket t ")
+})// TODO: impls WHERE t.ticket_number = :ticket_number
 public class Ticket {
     @Id @Column(name = "ticket_number")
     private Integer ticketNumber;

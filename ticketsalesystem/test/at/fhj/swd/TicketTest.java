@@ -1,9 +1,6 @@
 package at.fhj.swd;
 
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
-import org.junit.FixMethodOrder;
-import org.junit.Test;
+import org.junit.*;
 import org.junit.runners.MethodSorters;
 
 import javax.persistence.EntityManager;
@@ -67,9 +64,20 @@ public class TicketTest {
 
     }
 
-    @Test public void B_delete() {
+    @Test public void B_repositoryTest(){
+        TicketRepository ticketRepository = new TicketRepository(manager);
+
+        List <Ticket> tickets = ticketRepository.findByTicketNumber(customer.getCustomerNumber());
+        Assert.assertTrue(tickets.size()>0);
+    }
+
+
+
+
+    @Test public void C_delete() {
         transaction.begin ();
         manager.remove(ticket);
+        manager.remove(customer);
         manager.remove(place);
         manager.remove(category);
         transaction.commit();
