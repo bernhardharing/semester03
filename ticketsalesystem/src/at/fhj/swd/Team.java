@@ -14,7 +14,7 @@ public class Team {
     private String name;
 
 //    TODO: warum hier nicht ???
-//    @ManyToMany (mappedBy="id")
+//    @ManyToMany
 //    List<Match> matches = new ArrayList<Match>();
 
     public Integer getId() {

@@ -35,16 +35,16 @@ public class Match {
         this.id = id;
     }
 
-    // TODO: implement ManyToMany
-//    @ManyToMany
-//    @JoinTable(name = "team_match",
-//            joinColumns =
-//            @JoinColumn(name = "id", referencedColumnName = "fk_match_id"),
-//            inverseJoinColumns = {
-//                    @JoinColumn(name = "id", referencedColumnName = "fk_team_a_id"),
-//                    @JoinColumn(name = "id", referencedColumnName = "fk_team_b_id")}
-//    )
-//    private List<Team> teams = new ArrayList<Team>();
+//     TODO: implement ManyToMany
+    @ManyToMany
+    @JoinTable(name = "team_match",
+            joinColumns =
+            @JoinColumn(name = "fk_match_id", referencedColumnName = "id"),
+            inverseJoinColumns = {
+                    @JoinColumn(name = "fk_team_a_id", referencedColumnName = "id"),
+                    @JoinColumn(name = "fk_team_b_id", referencedColumnName = "id")}
+    )
+    private List<Team> teams = new ArrayList<Team>();
 
 
     @Column(name = "date")
