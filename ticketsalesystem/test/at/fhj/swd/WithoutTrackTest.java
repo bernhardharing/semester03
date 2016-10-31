@@ -16,8 +16,8 @@ import static org.junit.Assert.assertNotNull;
 /**
  * Created by Bogdan on 25.10.2016.
  */
-public class StadiumTest {
-    private static Stadium stadium;
+public class WithoutTrackTest {
+    private static WithoutTrack withoutTrack;
 
     final static String persistenceUnitName = "persistence";
     static EntityManagerFactory factory;
@@ -26,7 +26,7 @@ public class StadiumTest {
 
     @BeforeClass
     public static void prepare(){
-        stadium = new Stadium(1,"Arena",200);
+        withoutTrack = new WithoutTrack(1,"Arena",200);
         factory = Persistence.createEntityManagerFactory( persistenceUnitName );
         manager = factory.createEntityManager();
         transaction = manager.getTransaction();
@@ -39,25 +39,20 @@ public class StadiumTest {
         factory.close();
     }
 
-    @Test @Ignore
+    @Test
     public void create () {
         transaction.begin ();
-        assertNotNull (stadium);
-        manager.persist (stadium);
+        assertNotNull (withoutTrack);
+        manager.persist (withoutTrack);
         transaction.commit();
-        StadiumRepository stadiumRepository = new StadiumRepository(manager);
 
-        List<Stadium> list = stadiumRepository.findAll();
-        for (int i=0; i< list.size();i++){
-            Stadium stadium = list.get(0);
-            System.out.println(stadium.getLocation() + stadium.getTotalCapacity());
-        }
     }
 
-    @Test @ Ignore public void delete() {
+    @Test
+    public void delete() {
         transaction.begin ();
-        assertNotNull (stadium);
-        manager.remove(stadium);
+        assertNotNull (withoutTrack);
+        manager.remove(withoutTrack);
         transaction.commit();
     }
 }

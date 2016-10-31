@@ -24,8 +24,9 @@ CREATE TABLE public.MATCH
 CREATE TABLE public.STADIUM
 (
     id SERIAL PRIMARY KEY,
-    location VARCHAR NOT NULL,
-    total_capacity INT NOT NULL
+    location VARCHAR,
+    total_capacity INT,
+    DTYPE VARCHAR
 );
 
 CREATE SEQUENCE public.Customer_Sequence START WITH 1001 INCREMENT BY 1;

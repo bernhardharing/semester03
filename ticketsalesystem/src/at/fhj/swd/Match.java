@@ -45,7 +45,7 @@ public class Match {
         this.teams.add(team);
     }
 
-    //     TODO: implement ManyToMany
+    //TODO: implement ManyToMany
     @ManyToMany
     @JoinTable(name = "team_match",
             joinColumns =

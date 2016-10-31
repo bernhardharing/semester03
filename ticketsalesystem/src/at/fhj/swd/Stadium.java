@@ -6,13 +6,19 @@ import javax.persistence.*;
  * Created by NUC on 29.10.2016.
  */
 @Entity
+@Inheritance(strategy=InheritanceType.JOINED)
 @NamedQueries({
         @NamedQuery(name = "Stadium.findAll",
                 query = "SELECT c FROM Stadium c"),
 })
 public class Stadium {
+    @Id @Column(name = "id")
     private Integer id;
+
+    @Column(name = "location")
     private String location;
+
+    @Column(name = "total_capacity")
     private Integer totalCapacity;
 
     public Stadium(Integer id, String location, Integer totalCapacity) {
@@ -24,8 +30,7 @@ public class Stadium {
     public Stadium() {
     }
 
-    @Id
-    @Column(name = "id")
+
     public Integer getId() {
         return id;
     }
@@ -34,8 +39,7 @@ public class Stadium {
         this.id = id;
     }
 
-    @Basic
-    @Column(name = "location")
+
     public String getLocation() {
         return location;
     }
@@ -44,8 +48,7 @@ public class Stadium {
         this.location = location;
     }
 
-    @Basic
-    @Column(name = "total_capacity")
+
     public Integer getTotalCapacity() {
         return totalCapacity;
     }

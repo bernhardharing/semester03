@@ -84,9 +84,6 @@ public class TicketTest {
         Assert.assertTrue(tickets.size()>0);
     }
 
-
-
-
     @Test public void C_delete() {
         transaction.begin ();
         manager.remove(ticket);
