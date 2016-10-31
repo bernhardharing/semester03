@@ -11,16 +11,18 @@ import java.util.List;
  */
 @Entity
 public class Match {
-    @SequenceGenerator( name="MatchIdGenerator",
-            sequenceName="Match_Sequence",
+    @SequenceGenerator(name = "MatchIdGenerator",
+            sequenceName = "Match_Sequence",
             allocationSize = 1)
-    @Id @GeneratedValue(generator="MatchIdGenerator")
+    @Id
+    @GeneratedValue(generator = "MatchIdGenerator")
     @Column(name = "id")
     private Integer id;
     private Date date;
     private Time time;
 
-    public Match() {}
+    public Match() {
+    }
 
     public Match(Date date, Time time) {
         this.date = date;
@@ -35,16 +37,24 @@ public class Match {
         this.id = id;
     }
 
-//     TODO: implement ManyToMany
+    public List<Team> getTeams() {
+        return teams;
+    }
+
+    public void setTeams(Team team) {
+        this.teams.add(team);
+    }
+
+    //     TODO: implement ManyToMany
     @ManyToMany
     @JoinTable(name = "team_match",
             joinColumns =
             @JoinColumn(name = "fk_match_id", referencedColumnName = "id"),
-            inverseJoinColumns = {
-                    @JoinColumn(name = "fk_team_a_id", referencedColumnName = "id"),
-                    @JoinColumn(name = "fk_team_b_id", referencedColumnName = "id")}
+            inverseJoinColumns =
+            @JoinColumn(name = "fk_team_id", referencedColumnName = "id")
+
     )
-    private List<Team> teams = new ArrayList<Team>();
+    private List<Team> teams = new ArrayList<>();
 
 
     @Column(name = "date")

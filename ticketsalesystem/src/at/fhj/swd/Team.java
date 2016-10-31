@@ -13,6 +13,14 @@ public class Team {
     private Integer id;
     private String name;
 
+    public Team(Integer id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
+    public Team() {
+    }
+
 //    TODO: warum hier nicht ???
 //    @ManyToMany
 //    List<Match> matches = new ArrayList<Match>();

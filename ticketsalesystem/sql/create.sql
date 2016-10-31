@@ -7,8 +7,7 @@ CREATE TABLE public.TEAM
 CREATE TABLE public.TEAM_MATCH
 (
     id SERIAL PRIMARY KEY,
-    fk_team_a_id INT NOT NULL,
-    fk_team_b_id INT NOT NULL,
+    fk_team_id INT,
     fk_match_ID INT
 );
 
@@ -97,10 +96,7 @@ ALTER TABLE public.PLACE
 -- Team-Match
 ALTER TABLE public.TEAM_MATCH
   ADD CONSTRAINT team_match_team_a_id
-  FOREIGN KEY (fk_team_a_id) REFERENCES TEAM(id);
-ALTER TABLE public.TEAM_MATCH
-  ADD CONSTRAINT team_match_team_b_id
-  FOREIGN KEY (fk_team_b_id) REFERENCES TEAM(id);
+  FOREIGN KEY (fk_team_id) REFERENCES TEAM(id);
 ALTER TABLE public.TEAM_MATCH
   ADD CONSTRAINT team_match_match_date_time
   FOREIGN KEY (fk_match_id) REFERENCES MATCH(id);
