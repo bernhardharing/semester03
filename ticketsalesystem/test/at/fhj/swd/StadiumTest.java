@@ -2,6 +2,7 @@ package at.fhj.swd;
 
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import javax.persistence.EntityManager;
@@ -38,7 +39,7 @@ public class StadiumTest {
         factory.close();
     }
 
-    @Test
+    @Test @Ignore
     public void create () {
         transaction.begin ();
         assertNotNull (stadium);
@@ -53,7 +54,7 @@ public class StadiumTest {
         }
     }
 
-    @Test public void delete() {
+    @Test @ Ignore public void delete() {
         transaction.begin ();
         assertNotNull (stadium);
         manager.remove(stadium);
