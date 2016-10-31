@@ -11,7 +11,8 @@ import java.util.List;
  */
 @Entity
 public class Match {
-    @Id @Column(name = "id")
+    @Id
+    @Column(name = "id")
     private Integer id;
     private Date date;
     private Time time;
@@ -29,10 +30,10 @@ public class Match {
     @ManyToMany
     @JoinTable(name = "team_match",
             joinColumns =
-                    @JoinColumn(name = "id", referencedColumnName = "fk_match_id"),
-            inverseJoinColumns ={
-            @JoinColumn(name = "id", referencedColumnName = "fk_team_a_id"),
-                    @JoinColumn(name = "id", referencedColumnName = "fk_team_b_id")       }
+            @JoinColumn(name = "id", referencedColumnName = "fk_match_id"),
+            inverseJoinColumns = {
+                    @JoinColumn(name = "id", referencedColumnName = "fk_team_a_id"),
+                    @JoinColumn(name = "id", referencedColumnName = "fk_team_b_id")}
     )
     private List<Team> teams = new ArrayList<Team>();
 

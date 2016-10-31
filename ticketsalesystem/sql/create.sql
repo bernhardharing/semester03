@@ -66,8 +66,7 @@ CREATE TABLE public.PLACE
 (
     id INTEGER NOT NULL DEFAULT nextval('public.Place_Sequence') PRIMARY KEY,
     FK_CATEGORY_DESCRIPTION VARCHAR,
-    FK_STADION_ID INT,
-    FK_TICKET_NUMBER INT
+    FK_STADION_ID INT
 );
 
 CREATE TABLE public.WITH_TRACK
@@ -90,9 +89,6 @@ ALTER TABLE public.PLACE
 ALTER TABLE public.PLACE
   ADD CONSTRAINT place_stadion_id
   FOREIGN KEY (fk_stadion_id) REFERENCES stadium(id);
-ALTER TABLE public.PLACE
-  ADD CONSTRAINT place_ticket_number
-  FOREIGN KEY (FK_TICKET_NUMBER) REFERENCES ticket(ticket_number);
 
 -- Team-Match
 ALTER TABLE public.TEAM_MATCH

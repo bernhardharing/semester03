@@ -67,7 +67,7 @@ public class TicketTest {
     @Test public void B_repositoryTest(){
         TicketRepository ticketRepository = new TicketRepository(manager);
 
-        List <Ticket> tickets = ticketRepository.findByTicketNumber(customer.getCustomerNumber());
+        List <Ticket> tickets = ticketRepository.findByTicketNumber(ticket.getTicketNumber());
         Assert.assertTrue(tickets.size()>0);
     }
 

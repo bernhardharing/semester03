@@ -9,13 +9,21 @@ import java.sql.Date;
 @Entity
 @NamedQueries({
         @NamedQuery(name = "Ticket.findByTicketNumber",
-                query = "SELECT t FROM Ticket t ")
-})// TODO: impls WHERE t.ticket_number = :ticket_number
+                query = "SELECT t FROM Ticket t WHERE t.ticketNumber = :ticketNumber")
+})
 public class Ticket {
     @Id @Column(name = "ticket_number")
     private Integer ticketNumber;
     @Column(name = "date")
     private Date date;
+
+    public Place getPlace() {
+        return place;
+    }
+
+    public void setPlace(Place place) {
+        this.place = place;
+    }
 
     @OneToOne
     @JoinColumn(name="fk_place_id")

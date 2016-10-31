@@ -23,11 +23,11 @@ public class TicketRepository {
         this.entityManager = entityManager;
     }
 
-    //NamedQuery FindAll
-    public List<Ticket> findByTicketNumber(int number)
+
+    public List<Ticket> findByTicketNumber(Integer ticketNumber)
     {
         TypedQuery<Ticket> query = entityManager.createNamedQuery("Ticket.findByTicketNumber", Ticket.class);
-//        query.setParameter("ticket_number",number);
+        query.setParameter("ticketNumber",ticketNumber);
 
         return query.getResultList();
     }

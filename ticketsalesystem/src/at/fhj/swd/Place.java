@@ -14,13 +14,17 @@ public class Place {
     @Id @GeneratedValue(generator="PlaceIdGenerator")
     private Integer id;
 
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
+
     @ManyToOne
     @JoinColumn(name="fk_category_description")
     private Category category;
-
-    @OneToOne
-    @JoinColumn(name="fk_ticket_number")
-    private Ticket ticket;
 
     public Place(Category category) {
         this.category = category;
