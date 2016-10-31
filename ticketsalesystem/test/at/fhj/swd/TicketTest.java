@@ -7,6 +7,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
+import java.sql.Time;
 import java.util.Date;
 import java.util.List;
 
@@ -22,6 +23,8 @@ public class TicketTest {
     private static Category category;
     private static Place place;
     private static Customer customer;
+    private static Match match;
+    private  static Contingent contingent;
 
     final static String persistenceUnitName = "persistence";
     static EntityManagerFactory factory;
@@ -41,7 +44,14 @@ public class TicketTest {
 
         java.util.Date utilDate = new java.util.Date();
         java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
-        ticket = new Ticket(4,sqlDate,place,customer);
+
+        Time time = new Time(123300L);
+        match = new  Match(sqlDate,time);
+
+        contingent = new Contingent(20000,match);
+
+
+        ticket = new Ticket(4,sqlDate,place,customer,match,contingent);
     }
 
 
@@ -58,7 +68,10 @@ public class TicketTest {
         manager.persist (category);
         manager.persist (place);
         manager.persist (customer);
+        manager.persist(match);
+        manager.persist(contingent);
         manager.persist (ticket);
+
 
         transaction.commit();
 
@@ -80,6 +93,8 @@ public class TicketTest {
         manager.remove(customer);
         manager.remove(place);
         manager.remove(category);
+        manager.remove(match);
+        manager.remove(contingent);
         transaction.commit();
     }
 }

@@ -11,6 +11,8 @@ DROP TABLE team_match CASCADE;
 DROP TABLE ticket CASCADE;
 DROP SEQUENCE public.customer_sequence;
 DROP SEQUENCE public.place_sequence;
+DROP SEQUENCE public.match_sequence;
+DROP SEQUENCE public.contingent_sequence;
 
 
 

@@ -33,11 +33,21 @@ public class Ticket {
     @JoinColumn(name="fk_customer_number")
     private Customer customer;
 
-    public Ticket(Integer ticketNumber, Date date, Place place,Customer customer) {
+    @ManyToOne
+    @JoinColumn(name="fk_match_id")
+    private Match match;
+
+    @ManyToOne
+    @JoinColumn(name="fk_contingent_id")
+    private Contingent contingent;
+
+    public Ticket(Integer ticketNumber, Date date, Place place,Customer customer, Match match, Contingent contingent) {
         this.ticketNumber = ticketNumber;
         this.date = date;
         this.place = place;
         this.customer = customer;
+        this.match = match;
+        this.contingent = contingent;
     }
 
     public Ticket() {

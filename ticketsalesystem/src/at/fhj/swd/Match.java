@@ -11,13 +11,21 @@ import java.util.List;
  */
 @Entity
 public class Match {
-    @Id
+    @SequenceGenerator( name="MatchIdGenerator",
+            sequenceName="Match_Sequence",
+            allocationSize = 1)
+    @Id @GeneratedValue(generator="MatchIdGenerator")
     @Column(name = "id")
     private Integer id;
     private Date date;
     private Time time;
-    private String stadium;
 
+    public Match() {}
+
+    public Match(Date date, Time time) {
+        this.date = date;
+        this.time = time;
+    }
 
     public Integer getId() {
         return id;
@@ -27,15 +35,15 @@ public class Match {
         this.id = id;
     }
 
-    @ManyToMany
-    @JoinTable(name = "team_match",
-            joinColumns =
-            @JoinColumn(name = "id", referencedColumnName = "fk_match_id"),
-            inverseJoinColumns = {
-                    @JoinColumn(name = "id", referencedColumnName = "fk_team_a_id"),
-                    @JoinColumn(name = "id", referencedColumnName = "fk_team_b_id")}
-    )
-    private List<Team> teams = new ArrayList<Team>();
+//    @ManyToMany
+//    @JoinTable(name = "team_match",
+//            joinColumns =
+//            @JoinColumn(name = "id", referencedColumnName = "fk_match_id"),
+//            inverseJoinColumns = {
+//                    @JoinColumn(name = "id", referencedColumnName = "fk_team_a_id"),
+//                    @JoinColumn(name = "id", referencedColumnName = "fk_team_b_id")}
+//    )
+//    private List<Team> teams = new ArrayList<Team>();
 
 
     @Column(name = "date")
@@ -57,16 +65,6 @@ public class Match {
         this.time = time;
     }
 
-    @Basic
-    @Column(name = "stadium")
-    public String getStadium() {
-        return stadium;
-    }
-
-    public void setStadium(String stadium) {
-        this.stadium = stadium;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -77,7 +75,6 @@ public class Match {
         if (id != null ? !id.equals(match.id) : match.id != null) return false;
         if (date != null ? !date.equals(match.date) : match.date != null) return false;
         if (time != null ? !time.equals(match.time) : match.time != null) return false;
-        if (stadium != null ? !stadium.equals(match.stadium) : match.stadium != null) return false;
 
         return true;
     }
@@ -87,7 +84,6 @@ public class Match {
         int result = id != null ? id.hashCode() : 0;
         result = 31 * result + (date != null ? date.hashCode() : 0);
         result = 31 * result + (time != null ? time.hashCode() : 0);
-        result = 31 * result + (stadium != null ? stadium.hashCode() : 0);
         return result;
     }
 }

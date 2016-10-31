@@ -12,12 +12,14 @@ CREATE TABLE public.TEAM_MATCH
     fk_match_ID INT
 );
 
+CREATE SEQUENCE public.Match_Sequence START WITH 1001 INCREMENT BY 1;
+
 CREATE TABLE public.MATCH
 (
-    id SERIAL PRIMARY KEY,
+    id INTEGER NOT NULL DEFAULT nextval('public.Match_Sequence') PRIMARY KEY,
     date DATE,
     time TIME,
-    stadium VARCHAR NOT NULL
+    stadium VARCHAR
 );
 
 CREATE TABLE public.STADIUM
@@ -44,7 +46,8 @@ CREATE TABLE public.TICKET
     DATE DATE,
     FK_CUSTOMER_NUMBER INT,
     FK_CONTINGENT_ID INT,
-    FK_PLACE_ID INT
+    FK_PLACE_ID INT,
+    FK_MATCH_ID INT
 );
 
 CREATE TABLE public.CATEGORY
@@ -53,9 +56,11 @@ CREATE TABLE public.CATEGORY
       PRICE INT
 );
 
+CREATE SEQUENCE public.Contingent_Sequence START WITH 1001 INCREMENT BY 1;
+
 CREATE TABLE public.CONTINGENT
 (
-      id SERIAL PRIMARY KEY,
+  id INTEGER NOT NULL DEFAULT nextval('public.Contingent_Sequence') PRIMARY KEY,
       QUANTITY INT,
       FK_MATCH_ID INT
 );

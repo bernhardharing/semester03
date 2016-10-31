@@ -1,20 +1,33 @@
 package at.fhj.swd;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 /**
  * Created by NUC on 29.10.2016.
  */
 @Entity
 public class Contingent {
+    @SequenceGenerator( name="ContingentIdGenerator",
+            sequenceName="Contingent_Sequence",
+            allocationSize = 1)
+    @Id @GeneratedValue(generator="ContingentIdGenerator")
+    @Column(name = "id")
     private Integer id;
     private Integer quantity;
 
-    @Id
-    @Column(name = "id")
+
+    @ManyToOne
+    @JoinColumn(name="fk_match_id")
+    private Match match;
+
+    public Contingent(Integer quantity, Match match) {
+        this.quantity = quantity;
+        this.match = match;
+    }
+
+    public Contingent() {}
+
+
     public Integer getId() {
         return id;
     }
@@ -23,7 +36,6 @@ public class Contingent {
         this.id = id;
     }
 
-    @Basic
     @Column(name = "quantity")
     public Integer getQuantity() {
         return quantity;
