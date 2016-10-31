@@ -1,24 +1,23 @@
 package at.fhj.swd;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.sql.Date;
 import java.sql.Time;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by NUC on 29.10.2016.
  */
 @Entity
 public class Match {
+    @Id @Column(name = "id")
     private Integer id;
     private Date date;
     private Time time;
     private String stadium;
 
-    @Id
-    @Column(name = "id")
+
     public Integer getId() {
         return id;
     }
@@ -27,7 +26,17 @@ public class Match {
         this.id = id;
     }
 
-    @Basic
+    @ManyToMany
+    @JoinTable(name = "team_match",
+            joinColumns =
+                    @JoinColumn(name = "id", referencedColumnName = "fk_match_id"),
+            inverseJoinColumns ={
+            @JoinColumn(name = "id", referencedColumnName = "fk_team_a_id"),
+                    @JoinColumn(name = "id", referencedColumnName = "fk_team_b_id")       }
+    )
+    private List<Team> teams = new ArrayList<Team>();
+
+
     @Column(name = "date")
     public Date getDate() {
         return date;
@@ -37,7 +46,7 @@ public class Match {
         this.date = date;
     }
 
-    @Basic
+
     @Column(name = "time")
     public Time getTime() {
         return time;
